@@ -1,0 +1,57 @@
+{
+    "name": "georgeboot/laravel-tiptap",
+    "description": "Opinionated integration of Tiptap editor using the TALL stack",
+    "keywords": [
+        "laravel",
+        "tiptap",
+        "alpinejs",
+        "livewire",
+        "tall stack"
+    ],
+    "homepage": "https://github.com/georgeboot/laravel-tiptap",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George Boot"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "aws/aws-sdk-php": "^3.80",
+        "laravel/framework": "^6.0|^7.0|^8.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.2",
+        "nunomaduro/larastan": "^0.7",
+        "orchestra/testbench": "^6.9",
+        "pestphp/pest": "^1.0",
+        "phpunit/phpunit": "^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Georgeboot\\LaravelTiptap\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Georgeboot\\LaravelTiptap\\ServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

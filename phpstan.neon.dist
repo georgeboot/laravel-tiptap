@@ -1,0 +1,19 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - src
+        - tests
+
+    level: max
+
+    ignoreErrors:
+        - '#^Cannot call method debug\(\) on Illuminate\\Log\\LogManager\|null.$#'
+        - '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage::withArgs\(\).$#'
+    #
+    #    excludePaths:
+    #        - ./*/*/FileToBeExcluded.php
+
+    checkMissingIterableValueType: false

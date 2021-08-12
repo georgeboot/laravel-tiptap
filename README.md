@@ -1,3 +1,7 @@
+# Tiptap Editor for TALL stack
+
+![screenshot][/screenshot.png?raw=true "Screenshot of the editor"]
+
 ```
 composer require georgeboot/laravel-tiptap
 yarn add laravel-tiptap

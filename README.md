@@ -1,6 +1,6 @@
 # Tiptap Editor for TALL stack
 
-![screenshot][/screenshot.png?raw=true "Screenshot of the editor"]
+<p align="center"><img src="/screenshot.png" alt="Screenshot"></p>
 
 ```
 composer require georgeboot/laravel-tiptap

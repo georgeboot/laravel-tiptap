@@ -1,0 +1,34 @@
+name: Publish new release
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  release:
+    name: Create NPM release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: yarn install --frozen-lockfile
+      - run: git config --global user.name "GitHub CD bot"
+      - run: git config --global user.email "github-cd-bot@github.com"
+      - run: yarn version --new-version ${{ github.event.release.tag_name }} --no-git-tag-version
+      #      - run: yarn run build
+      #      - run: yarn test
+      - run: yarn publish --access public --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: git add package.json
+      - run: git commit -m 'Bump version'
+      - run: git push
+        env:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

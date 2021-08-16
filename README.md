@@ -57,3 +57,13 @@ return [
 
 ];
 ```
+
+Add purge directory to TailwindCSS config:
+```js
+module.exports = {
+    purge: [
+        // your existing purges
+        './vendor/georgeboot/laravel-tiptap/resources/views/**/*.blade.php',
+    ],
+}
+```

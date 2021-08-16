@@ -38,7 +38,6 @@
     "@tiptap/extension-paragraph": "^2.0.0-beta",
     "@tiptap/extension-strike": "^2.0.0-beta",
     "@tiptap/extension-text": "^2.0.0-beta",
-    "@types/js-cookie": "^2.2.7",
     "image-blob-reduce": "^3.0.1",
     "js-cookie": "^3.0.0"
   },

@@ -1,5 +1,5 @@
 <div
-    x-data="tiptapEditor($wire.entangle('{{ $attributes->wire('model')->value() }}'){{ $attributes->wire('model')->hasModifier('defer') ? '.defer': '' }}, { enableImageUpload: @json($attributes->has('enable-image-upload')) })"
+    x-data="tiptapEditor($wire.entangle('{{ $attributes->wire('model')->value() }}'){{ $attributes->wire('model')->hasModifier('defer') ? '.defer': '' }}, { enableImageUpload: @json($attributes->has('enable-image-upload')), maxSize: @json(config('laravel-tiptap.images.maxSize')) })"
     wire:ignore
     {{ $attributes->whereDoesntStartWith('wire:model') }}
     class="block w-full bg-white border border-gray-300 rounded-md shadow-sm focus:ring-blue-200 focus:border-blue-300 focus:ring focus:ring-opacity-75 sm:text-sm"

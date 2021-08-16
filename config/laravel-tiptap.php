@@ -3,7 +3,7 @@
 return [
 
     'images' => [
-        'disk' => null, // use your default disk
+        'disk' => env('FILESYSTEM_DRIVER', 's3'),
         'maxSize' => 1000,
     ],
 

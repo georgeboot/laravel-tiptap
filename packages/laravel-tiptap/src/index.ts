@@ -37,6 +37,7 @@ const data = (content: any, userOptions: any) => ({
     options: {
         enableImageUpload: false,
         enableLinks: true,
+        maxSize: 1000,
         ...userOptions,
     },
     imageUploadConfig: null as null | GetsS3UrlResponse,
@@ -201,7 +202,7 @@ const data = (content: any, userOptions: any) => ({
 
         // resize our image
         const resizedFile = await ImageBlobReduce.toBlob(file, {
-            max: 1000,
+            max: this.options.maxSize,
         })
 
         formData.set('Content-Type', file.type)

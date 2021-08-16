@@ -19,6 +19,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: yarn install --frozen-lockfile
+      - run: yarn build
       - run: git config --global user.name "GitHub CD bot"
       - run: git config --global user.email "github-cd-bot@github.com"
       - run: cd packages/lararvel-tiptap

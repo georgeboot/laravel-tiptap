@@ -1,49 +1,48 @@
 {
-    "name": "laravel-tiptap",
-    "description": "Opinionated integration of Tiptap editor using the TALL stack",
-    "version": "0.0.1",
-    "homepage": "https://github.com/georgeboot/laravel-tiptap",
-    "keywords": [
-      "laravel",
-      "tiptap",
-      "alpinejs",
-      "livewire",
-      "tall stack"
-    ],
-    "license": "MIT",
-    "funding": {
-      "type": "github",
-      "url": "https://github.com/sponsors/georgeboot"
-    },
-    "main": "dist/laravel-tiptap.cjs.js",
-    "umd": "dist/laravel-tiptap.umd.js",
-    "module": "dist/laravel-tiptap.esm.js",
-    "types": "dist/packages/laravel-tiptap/src/index.d.ts",
-    "files": [
-      "src",
-      "dist"
-    ],
-    "dependencies": {
-      "@tiptap/core": "^2.0.0-beta",
-        "@tiptap/extension-bold": "^2.0.0-beta",
-        "@tiptap/extension-bubble-menu": "^2.0.0-beta",
-        "@tiptap/extension-bullet-list": "^2.0.0-beta",
-        "@tiptap/extension-document": "^2.0.0-beta",
-        "@tiptap/extension-heading": "^2.0.0-beta",
-        "@tiptap/extension-image": "^2.0.0-beta",
-        "@tiptap/extension-italic": "^2.0.0-beta",
-        "@tiptap/extension-link": "^2.0.0-beta",
-        "@tiptap/extension-list-item": "^2.0.0-beta",
-        "@tiptap/extension-ordered-list": "^2.0.0-beta",
-        "@tiptap/extension-paragraph": "^2.0.0-beta",
-        "@tiptap/extension-strike": "^2.0.0-beta",
-        "@tiptap/extension-text": "^2.0.0-beta",
-        "image-blob-reduce": "^3.0.1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/georgeboot/laravel-tiptap",
-      "directory": "packages/laravel-tiptap"
-    }
+  "name": "laravel-tiptap",
+  "description": "Opinionated integration of Tiptap editor using the TALL stack",
+  "version": "0.0.2",
+  "homepage": "https://github.com/georgeboot/laravel-tiptap",
+  "keywords": [
+    "laravel",
+    "tiptap",
+    "alpinejs",
+    "livewire",
+    "tall stack"
+  ],
+  "license": "MIT",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/georgeboot"
+  },
+  "main": "dist/laravel-tiptap.cjs.js",
+  "umd": "dist/laravel-tiptap.umd.js",
+  "module": "dist/laravel-tiptap.esm.js",
+  "types": "dist/packages/laravel-tiptap/src/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "dependencies": {
+    "@tiptap/core": "^2.0.0-beta",
+    "@tiptap/extension-bold": "^2.0.0-beta",
+    "@tiptap/extension-bubble-menu": "^2.0.0-beta",
+    "@tiptap/extension-bullet-list": "^2.0.0-beta",
+    "@tiptap/extension-document": "^2.0.0-beta",
+    "@tiptap/extension-heading": "^2.0.0-beta",
+    "@tiptap/extension-image": "^2.0.0-beta",
+    "@tiptap/extension-italic": "^2.0.0-beta",
+    "@tiptap/extension-link": "^2.0.0-beta",
+    "@tiptap/extension-list-item": "^2.0.0-beta",
+    "@tiptap/extension-ordered-list": "^2.0.0-beta",
+    "@tiptap/extension-paragraph": "^2.0.0-beta",
+    "@tiptap/extension-strike": "^2.0.0-beta",
+    "@tiptap/extension-text": "^2.0.0-beta",
+    "image-blob-reduce": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/georgeboot/laravel-tiptap",
+    "directory": "packages/laravel-tiptap"
   }
-  
+}

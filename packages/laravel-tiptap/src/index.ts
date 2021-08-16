@@ -49,13 +49,13 @@ const data = (content: any, userOptions: any) => ({
             extensions: [
                 ExtensionBold,
                 ExtensionBubbleMenu.configure({
-                    // key: 'link-bubble-menu',
+                    pluginKey: 'link-bubble-menu',
                     // @ts-ignore
                     element: this.$refs['link-bubble-menu'],
                     shouldShow: ({ editor }) => editor.isActive('link'),
                 }),
                 ExtensionBubbleMenu.configure({
-                    // key: 'image-bubble-menu',
+                    pluginKey: 'image-bubble-menu',
                     // @ts-ignore
                     element: this.$refs['image-bubble-menu'],
                     shouldShow: ({ editor }) => editor.isActive('image'),

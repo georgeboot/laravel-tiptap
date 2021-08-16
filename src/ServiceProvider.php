@@ -23,6 +23,6 @@ class ServiceProvider extends LaravelServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-tiptap');
 
-        Blade::component('blade-icons::components.tiptap-editor', 'tiptap-editor');
+        Blade::component('laravel-tiptap::components.tiptap-editor', 'tiptap-editor');
     }
 }

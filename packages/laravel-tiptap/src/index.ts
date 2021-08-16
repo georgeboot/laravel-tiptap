@@ -38,7 +38,7 @@ const data = (content: any, userOptions: any) => ({
         enableImageUpload: false,
         enableLinks: true,
         maxSize: 1000,
-        generateImageUploadConfigUrl: '/tiptap-editor/generate-image-upload-config',
+        generateImageUploadConfigUrl: '/laravel-tiptap/generate-image-upload-config',
         ...userOptions,
     },
     imageUploadConfig: null as null | GetsS3UrlResponse,

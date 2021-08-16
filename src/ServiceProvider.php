@@ -10,16 +10,16 @@ class ServiceProvider extends LaravelServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/larvel-tiptap.php',
-            'larvel-tiptap'
+            __DIR__ . '/../config/laravel-tiptap.php',
+            'laravel-tiptap'
         );
     }
 
     public function boot(): void
     {
         $this->publishes([
-            __DIR__ . '/../config/larvel-tiptap.php' => config_path('larvel-tiptap.php'),
-        ], 'larvel-tiptap-config');
+            __DIR__ . '/../config/laravel-tiptap.php' => config_path('laravel-tiptap.php'),
+        ], 'laravel-tiptap-config');
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-tiptap');
 

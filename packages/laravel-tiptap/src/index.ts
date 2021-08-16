@@ -183,7 +183,7 @@ const data = (content: any, userOptions: any) => ({
         const getsS3UrlResponse = await typedFetch<GetsS3UrlResponse>(this.options.generateImageUploadConfigUrl, {
             method: 'post',
             headers: [
-                ['X-CSRF-TOKEN', Cookies.get('XSRF-TOKEN') ?? ''],
+                ['X-XSRF-TOKEN', Cookies.get('XSRF-TOKEN') ?? ''],
             ],
         })
 

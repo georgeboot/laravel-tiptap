@@ -16,6 +16,7 @@ import ExtensionDocument from '@tiptap/extension-document'
 import 'tippy.js/dist/tippy.css'
 const ImageBlobReduce = require('image-blob-reduce')()
 import { TextSelection } from 'prosemirror-state'
+import Cookies from 'js-cookie'
 
 interface GetsS3UrlResponse {
     uploadUrl: string
@@ -181,6 +182,9 @@ const data = (content: any, userOptions: any) => ({
 
         const getsS3UrlResponse = await typedFetch<GetsS3UrlResponse>(this.options.generateImageUploadConfigUrl, {
             method: 'post',
+            headers: {
+                'X-CSRF-TOKEN': Cookies.get('XSRF-TOKEN'),
+            },
         })
 
         if (!getsS3UrlResponse.data) {

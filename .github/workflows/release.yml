@@ -21,15 +21,14 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: git config --global user.name "GitHub CD bot"
       - run: git config --global user.email "github-cd-bot@github.com"
-      - run: cd packages/laravel-tiptap
       - run: yarn version --new-version ${{ github.event.release.tag_name }} --no-git-tag-version
-      #      - run: yarn run build
-      #      - run: yarn test
+        working-directory: packages/laravel-tiptap
       - run: yarn publish --access public --tag latest
+        working-directory: packages/laravel-tiptap
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: git add package.json
-      - run: git commit -m 'Bump version'
-      - run: git push
-        env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      # - run: git add package.json
+      # - run: git commit -m 'Bump version'
+      # - run: git push
+      #   env:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}

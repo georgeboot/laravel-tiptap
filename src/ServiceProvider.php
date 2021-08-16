@@ -31,8 +31,8 @@ class ServiceProvider extends LaravelServiceProvider
         }
 
         Route::post(
-            '/laravel-tiptap/generate-upload-url',
-            GenerateUploadUrlController::class
+            '/laravel-tiptap/generate-image-upload-config',
+            GenerateImageUploadConfigController::class,
         )->middleware(config('laravel-tiptap.images.middleware'));
     }
 }

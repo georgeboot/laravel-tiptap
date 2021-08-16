@@ -1,7 +1,7 @@
 {
   "name": "laravel-tiptap",
   "description": "Opinionated integration of Tiptap editor using the TALL stack",
-  "version": "0.0.2",
+  "version": "latest",
   "homepage": "https://github.com/georgeboot/laravel-tiptap",
   "keywords": [
     "laravel",

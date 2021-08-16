@@ -14,7 +14,6 @@ import ExtensionStrike from '@tiptap/extension-strike'
 import ExtensionText from '@tiptap/extension-text'
 import ExtensionDocument from '@tiptap/extension-document'
 import 'tippy.js/dist/tippy.css'
-// import ImageBlobReduceLib from 'image-blob-reduce'
 const ImageBlobReduce = require('image-blob-reduce')()
 import { TextSelection } from 'prosemirror-state'
 
@@ -38,6 +37,7 @@ const data = (content: any, userOptions: any) => ({
         enableImageUpload: false,
         enableLinks: true,
         maxSize: 1000,
+        generateImageUploadConfigUrl: '/tiptap-editor/generate-image-upload-config',
         ...userOptions,
     },
     imageUploadConfig: null as null | GetsS3UrlResponse,
@@ -179,7 +179,7 @@ const data = (content: any, userOptions: any) => ({
     async getImageUploadConfig(): Promise<GetsS3UrlResponse> {
         if (this.imageUploadConfig) return this.imageUploadConfig
 
-        const getsS3UrlResponse = await typedFetch<GetsS3UrlResponse>('/api/tiptap/generate-upload-url', {
+        const getsS3UrlResponse = await typedFetch<GetsS3UrlResponse>(this.options.generateImageUploadConfigUrl, {
             method: 'post',
         })
 
@@ -219,7 +219,6 @@ const data = (content: any, userOptions: any) => ({
         }
 
         const imageUrl = `${imageUploadConfig.downloadUrlPrefix}${file.name}`
-        // Alpine.raw(this.editor).chain().setImage({ src: imageUrl }).run()
 
         const editor = Alpine.raw(this.editor) as Editor
 
@@ -237,8 +236,6 @@ const data = (content: any, userOptions: any) => ({
         const endPos = editor.state.selection.$to.after() - 1
         const resolvedPos = editor.state.doc.resolve(endPos)
         const moveCursorTransaction = editor.view.state.tr.setSelection(new TextSelection(resolvedPos))
-
-        // editor.view.dispatch(insertTransaction.setSelection(new TextSelection(resolvedPos)))
 
         editor.view.dispatch(moveCursorTransaction.scrollIntoView())
     },

@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class GenerateUploadUrlController extends Controller
+class GenerateImageUploadConfigController extends Controller
 {
     /**
      * Handle the incoming request.

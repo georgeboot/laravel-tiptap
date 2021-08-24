@@ -1,5 +1,6 @@
-import babel from '@rollup/plugin-babel';
-import typescript from 'rollup-plugin-typescript2';
+import babel from '@rollup/plugin-babel'
+import typescript from 'rollup-plugin-typescript2'
+import commonjs from '@rollup/plugin-commonjs'
 
 export default {
     input: './packages/laravel-tiptap/src/index.ts',
@@ -40,5 +41,6 @@ export default {
             babelHelpers: 'bundled',
             exclude: 'node_modules/**',
         }),
+        commonjs(),
     ],
-};
+}

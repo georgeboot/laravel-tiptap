@@ -14,7 +14,7 @@ import ExtensionStrike from '@tiptap/extension-strike'
 import ExtensionText from '@tiptap/extension-text'
 import ExtensionDocument from '@tiptap/extension-document'
 import 'tippy.js/dist/tippy.css'
-import ImageBlobReduce from 'image-blob-reduce/dist/image-blob-reduce.esm.mjs'
+import ImageBlobReduce from 'image-blob-reduce'
 import { TextSelection } from 'prosemirror-state'
 import Cookies from 'js-cookie'
 

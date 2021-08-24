@@ -14,7 +14,7 @@ import ExtensionStrike from '@tiptap/extension-strike'
 import ExtensionText from '@tiptap/extension-text'
 import ExtensionDocument from '@tiptap/extension-document'
 import 'tippy.js/dist/tippy.css'
-const ImageBlobReduce = require('image-blob-reduce')()
+import * as ImageBlobReduceLib from 'image-blob-reduce'
 import { TextSelection } from 'prosemirror-state'
 import Cookies from 'js-cookie'
 
@@ -205,6 +205,7 @@ const data = (content: any, userOptions: any) => ({
         }
 
         // resize our image
+        const ImageBlobReduce = ImageBlobReduceLib()
         const resizedFile = await ImageBlobReduce.toBlob(file, {
             max: this.options.maxSize,
         })

@@ -24,7 +24,8 @@
       ]
     },
     "files": [
-      "./shims/alpine.d.ts"
+      "./shims/alpine.d.ts",
+      "./shims/image-blob-reduce.d.ts"
     ],
     "include": [
       "**/*.ts",
@@ -36,4 +37,3 @@
       "**/vue-3"
     ]
   }
-  

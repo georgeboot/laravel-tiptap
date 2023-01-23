@@ -1,11 +1,12 @@
 includes:
     - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/spatie/invade/phpstan-extension.neon
 
 parameters:
 
     paths:
         - src
-        - tests
+        # - tests
 
     level: max
 

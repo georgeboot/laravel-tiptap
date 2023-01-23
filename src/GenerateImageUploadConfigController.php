@@ -19,12 +19,34 @@ class GenerateImageUploadConfigController extends Controller
     {
         $uuid = Str::uuid()->toString();
         $disk = Storage::disk(config('laravel-tiptap.images.disk'));
+        
+        $driver = $disk->getDriver();
+        
+        // Flysystem V2+ (Laravel 9+) doesn't allow direct access to adapter, so we need to invade instead.
+        if (method_exists($driver, 'getAdapter')) {
+            $adapter = $driver->getAdapter();
+        } else {
+            $adapter = invade($driver)->adapter;
+        }
 
-        $bucketName = $disk->getDriver()->getAdapter()->getBucket();
-        $bucketPrefix = $disk->getDriver()->getAdapter()->getPathPrefix();
-
-        /** @var \Aws\S3\S3Client */
-        $client = $disk->getDriver()->getAdapter()->getClient();
+        /** @var \Aws\S3\S3Client $client */
+        if (method_exists($adapter, 'getClient')) {
+            $client = $adapter->getClient();
+        } else {
+            $client = invade($adapter)->client;
+        }
+        
+        if (method_exists($adapter, 'getBucket')) {
+            $bucketName = $adapter->getBucket();
+        } else {
+            $bucketName = invade($adapter)->bucket;
+        }
+        
+        if (method_exists($adapter, 'getPathPrefix')) {
+            $bucketPrefix = $adapter->getPathPrefix();
+        } else {
+            $bucketPrefix = invade($adapter)->prefixer->prefixPath('');
+        }
 
         $keyPrefix = $bucketPrefix.$uuid;
 

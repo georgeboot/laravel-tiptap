@@ -19,34 +19,29 @@ class GenerateImageUploadConfigController extends Controller
     {
         $uuid = Str::uuid()->toString();
         $disk = Storage::disk(config('laravel-tiptap.images.disk'));
-        
+
+        // Flysystem V2+ (Laravel 9+) doesn't allow direct access to stuff, so we need to invade instead.
+
+        /** @var \League\Flysystem\FilesystemOperator|\League\Flysystem\FilesystemInterface $driver */
         $driver = $disk->getDriver();
-        
-        // Flysystem V2+ (Laravel 9+) doesn't allow direct access to adapter, so we need to invade instead.
-        if (method_exists($driver, 'getAdapter')) {
-            $adapter = $driver->getAdapter();
-        } else {
-            $adapter = invade($driver)->adapter;
-        }
+
+        /** @var \Illuminate\Filesystem\FilesystemAdapter $adapter */
+        $adapter = method_exists($driver, 'getAdapter')
+            ? $driver->getAdapter()
+            : invade($driver)->adapter;
 
         /** @var \Aws\S3\S3Client $client */
-        if (method_exists($adapter, 'getClient')) {
-            $client = $adapter->getClient();
-        } else {
-            $client = invade($adapter)->client;
-        }
-        
-        if (method_exists($adapter, 'getBucket')) {
-            $bucketName = $adapter->getBucket();
-        } else {
-            $bucketName = invade($adapter)->bucket;
-        }
-        
-        if (method_exists($adapter, 'getPathPrefix')) {
-            $bucketPrefix = $adapter->getPathPrefix();
-        } else {
-            $bucketPrefix = invade($adapter)->prefixer->prefixPath('');
-        }
+        $client = method_exists($adapter, 'getClient')
+            ? $adapter->getClient()
+            : invade($adapter)->client;
+
+        $bucketName = method_exists($adapter, 'getBucket')
+            ? $adapter->getBucket()
+            : invade($adapter)->bucket;
+
+        $bucketPrefix = method_exists($adapter, 'getPathPrefix')
+            ? $adapter->getPathPrefix()
+            : invade($adapter)->prefixer->prefixPath('');
 
         $keyPrefix = $bucketPrefix.$uuid;
 
